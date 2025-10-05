@@ -1,70 +1,242 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="glossy-gold">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sanskriti Road Carries – Logistics & Transport</title>
+  <title>Sanskriti Road Carries – Logistics</title>
+
+  <!-- URL logo / favicon -->
+  <link rel="icon" type="image/png" sizes="45x45" href="https://i.ibb.co/mrL0bGM3/SRC-logo.png">
+  <link rel="icon" type="image/png" sizes="45x45" href="https://i.ibb.co/mrL0bGM3/SRC-logo.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://i.ibb.co/mrL0bGM3/SRC-logo.png">
+  <link rel="shortcut icon" href="https://i.ibb.co/mrL0bGM3/SRC-logo.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
+    /* =========================
+       THEME TOKENS (DEFAULTS)
+       ========================= */
     :root{
-      --bg:#0b1220; /* deep navy */
+      /* Premium White (available, not default) */
+      --bg-0:#ffffff;
+      --bg-50:#bfc5cb;
+      --bg-100:#f3f6fb;
+
+      --card:#ffffff;
+      --muted:#667083;
+      --text:#0b1220;
+
+      --brand:#3aa1ff;
+      --brand-2:#7bd6ff;
+      --accent:#18d49f;
+
+      --shadow: 0 40px 24px rgba(8,15,30,.08);
+
+      --bg-image: url('https://i.ibb.co/S4nbdSn5/bg.png');
+      --bg-scale: 2;
+
+      --glow-rgb: 58,161,255;
+
+      /* Component vars that differ by theme */
+      --nav-bg:#ffffff;
+      --nav-text:#0b1220;
+      --nav-border:rgba(11,18,32,.08);
+
+      --panel-start: rgba(255,255,255,.9);
+      --panel-end: rgba(247,249,252,.95);
+
+      --surface-border: rgba(11,18,32,.06);
+      --thumb-bg:#f0f3f8;
+      --ghost-border: rgba(11,18,32,.16);
+      --input-bg:#ffffff;
+      --input-border: rgba(11,18,32,.12);
+
+      --stat-bg: rgba(11,18,32,.03);
+      --stat-border: rgba(11,18,32,.06);
+
+      --icon-bg: rgba(58,161,255,.12);
+
+      --footer-border: rgba(11,18,32,.06);
+
+      /* BG art visible in all themes */
+      --bg-overlay-opacity: .20;
+      --bg-overlay-vignette: radial-gradient(120% 80% at 50% 10%, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 55%, rgba(11,18,32,.08) 100%);
+      --hero-accent-1: rgba(58,161,255,.10);
+      --hero-accent-2: rgba(123,214,255,.08);
+      --hero-accent-3: rgba(24,212,159,.06);
+    }
+
+    /* Royal Blue */
+    html[data-theme="royal-blue"]{
+      --bg-0:#0a1120;
+      --bg-50:#0f1a33;
+      --bg-100:#0a1326;
+
       --card:#121a2d;
       --muted:#9fb0c6;
       --text:#eaf2ff;
-      --brand:#3aa1ff; /* sky/transport vibe */
+
+      --brand:#3aa1ff;
       --brand-2:#7bd6ff;
       --accent:#18d49f;
+
       --shadow: 0 10px 30px rgba(0,0,0,.35);
-      /* Replace below with your actual abstract neon-waves image URL */
-      --bg-image: url('https://i.ibb.co/S4nbdSn5/bg.png');
-      --bg-scale: 1;
+
+      /* Light navbar for contrast; content stays blue */
+      --nav-bg: rgba(255,255,255,.88);
+      --nav-text:#03183a;
+      --nav-border: rgba(255,255,255,.08);
+
+      --panel-start: rgba(18,32,60,.7);
+      --panel-end: rgba(10,20,38,.5);
+
+      --surface-border: rgba(255,255,255,.08);
+      --thumb-bg:#0c1426;
+      --ghost-border: rgba(255,255,255,.25);
+      --input-bg:#0c1426;
+      --input-border: rgba(255,255,255,.18);
+
+      --stat-bg: rgba(255,255,255,.04);
+      --stat-border: rgba(255,255,255,.06);
+
+      --icon-bg: rgba(58,161,255,.15);
+
+      --footer-border: rgba(255,255,255,.08);
+
+      --bg-overlay-opacity: .25;
+      --bg-overlay-vignette: radial-gradient(120% 80% at 50% 10%, rgba(0,0,0,0) 0%, rgba(0,0,0,.20) 55%, rgba(0,0,0,.45) 100%);
+      --hero-accent-1: rgba(58,161,255,.25);
+      --hero-accent-2: rgba(123,214,255,.18);
+      --hero-accent-3: rgba(24,212,159,.12);
+
+      --glow-rgb: 58,161,255;
     }
+
+    /* Glossy Gold (DEFAULT) */
+    html[data-theme="glossy-gold"]{
+      --bg-0:#fffefb;
+      --bg-50:#fff8e8;
+      --bg-100:#fff1cc;
+
+      --card:#ffffff;
+      --muted:#6b7280;
+      --text:#1a1a1a;
+
+      --brand:#d4af37;
+      --brand-2:#ffdd55;
+      --accent:#e6c200;
+
+      --shadow: 0 10px 24px rgba(146,110,0,.12);
+
+      --nav-bg:#ffffff;
+      --nav-text:#1a1a1a;
+      --nav-border: rgba(146,110,0,.18);
+
+      --panel-start: rgba(255,252,245,.92);
+      --panel-end: rgba(255,246,220,.95);
+
+      --surface-border: rgba(146,110,0,.18);
+      --thumb-bg:#fff7df;
+      --ghost-border: rgba(146,110,0,.28);
+      --input-bg:#ffffff;
+      --input-border: rgba(146,110,0,.28);
+
+      --stat-bg: rgba(146,110,0,.06);
+      --stat-border: rgba(146,110,0,.18);
+
+      --icon-bg: rgba(212,175,55,.18);
+
+      --footer-border: rgba(146,110,0,.18);
+
+      --bg-overlay-opacity: .16;
+      --bg-overlay-vignette: radial-gradient(120% 80% at 50% 10%, rgba(255,255,255,0) 0%, rgba(255,255,255,.06) 55%, rgba(146,110,0,.10) 100%);
+      --hero-accent-1: rgba(212,175,55,.20);
+      --hero-accent-2: rgba(255,221,85,.16);
+      --hero-accent-3: rgba(230,194,0,.12);
+
+      --glow-rgb: 212,175,55;
+    }
+
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
-      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,'Helvetica Neue',Arial,'Apple Color Emoji','Segoe UI Emoji';
-      color:var(--text); background: linear-gradient(180deg, #0a1120 0%, #0f1a33 40%, #0a1326 100%);
+      margin:0;
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,'Helvetica Neue',Arial,'Apple Color Emoji','Segoe UI Emoji';
+      color:var(--text);
+      background: linear-gradient(180deg, var(--bg-0) 0%, var(--bg-50) 50%, var(--bg-100) 100%);
     }
     .container{width:min(1200px, 92%); margin-inline:auto}
 
-    /* ===== NAVBAR (WHITE) ===== */
+    /* ===== NAVBAR ===== */
     header{
       position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(2px);
-      background:#ffffff; /* always white */
-      border-bottom:1px solid rgba(0,0,0,.08);
+      background:var(--nav-bg);
+      border-bottom:1px solid var(--nav-border);
     }
     .nav{
-      display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:20px 0;
-      background:#ffffff; /* ensure white base */
+      display:flex; align-items:center; justify-content:space-between; gap:1rem; padding:14px 0;
+      background:var(--nav-bg);
     }
     .nav.is-scrolled{
-      background:#ffffff; /* stay white on scroll */
-      border-bottom:1px solid rgba(0,0,0,.08);
+      background:var(--nav-bg);
+      border-bottom:1px solid var(--nav-border);
     }
 
-    .brand{display:flex; align-items:center; gap:.6rem; text-decoration:none; color:#0b1220}
-    .brand img{width:40px; height:40px; border-radius:8px; object-fit:contain;}
-    .brand strong{font-size:1.05rem; letter-spacing:.3px; color:#0b1220}
+    .brand{display:flex; align-items:center; gap:.6rem; text-decoration:none; color:var(--nav-text)}
+    .brand img{width:15pc; height:120px; border-radius:8px; object-fit:contain;} /* bigger logo */
 
     .links{display:flex; gap:1.25rem; align-items:center}
-    .links a{color:#0b1220; text-decoration:none; font-weight:600; opacity:.9}
+    .links a{color:var(--nav-text); text-decoration:none; font-weight:600; opacity:.9}
     .links a:hover{color:var(--brand)}
 
-    .hamburger{display:none; background:transparent; border:none; width:40px; height:40px; border-radius:10px; color:#0b1220}
+    .hamburger{display:none; background:transparent; border:none; width:40px; height:40px; border-radius:10px; color:var(--nav-text)}
+
+    /* Wrap your iframe with <div class="map-embed"> ... </div> */
+    .map-embed{
+      width: 100%;
+      /* keep corners consistent with your theme */
+      border-radius: 16px;
+      overflow: hidden;           /* hides iframe corners */
+      border: 1px solid rgba(146,110,0,.18);
+      box-shadow: 0 10px 24px rgba(146,110,0,.12);
+    }
+
+    /* The iframe itself */
+    #map-iframe{
+      display: block;
+      width: 100%;
+      height: clamp(260px, 40vw, 420px); /* responsive height */
+      border: 0;
+    }
+
+    /* Optional: use aspect-ratio instead of clamp (modern browsers) */
+    /*
+    #map-iframe{
+      display:block;
+      width:100%;
+      aspect-ratio: 16 / 9;       // desktop/tablet
+      border:0;
+    }
+    @media (max-width: 640px){
+      #map-iframe{ aspect-ratio: 4 / 5; }  // taller on mobile
+    }
+    */
 
     @media (max-width: 900px){
       .links{display:none}
       .links.open{
         display:flex; position:absolute; inset:60px 4% auto; flex-direction:column;
-        background:#ffffff; /* white mobile dropdown */
-        padding:14px; border:1px solid rgba(0,0,0,.08); border-radius:12px; box-shadow:var(--shadow)
+        background:var(--nav-bg);
+        padding:14px; border:1px solid var(--nav-border); border-radius:12px; box-shadow:var(--shadow)
       }
       .hamburger{display:inline-grid; place-items:center}
     }
 
-    /* ===== SCROLLING BACKGROUND EFFECT ===== */
+    /* ===== BG PARALLAX IMAGE ===== */
     .bg-scroll{
       position: fixed;
       inset: 0;
@@ -77,15 +249,10 @@
       transform: scale(var(--bg-scale));
       transform-origin: center top;
       will-change: transform;
-      opacity: 0.28; /* subtle so content stays readable */
-      filter: saturate(1.05) contrast(1.05) brightness(.95);
+      opacity: var(--bg-overlay-opacity);
+      filter: saturate(1.05) contrast(1.05) brightness(1);
     }
-    /* Soft vignette to keep text legible on top of bright lines */
-    .bg-scroll::after{
-      content:"";
-      position:absolute; inset:0;
-      background: radial-gradient(120% 80% at 50% 10%, rgba(0,0,0,0) 0%, rgba(0,0,0,.25) 60%, rgba(0,0,0,.45) 100%);
-    }
+    .bg-scroll::after{ content:""; position:absolute; inset:0; background: var(--bg-overlay-vignette); }
     @media (prefers-reduced-motion: reduce){
       .bg-scroll{ transform:none !important; }
     }
@@ -95,9 +262,9 @@
     .hero:before{
       content:""; position:absolute; inset:-20% -10% auto; height:120%; z-index:-1;
       background:
-        radial-gradient(1200px 400px at 20% -10%, rgba(58,161,255,.25), transparent 60%),
-        radial-gradient(800px 300px at 80% -10%, rgba(123,214,255,.18), transparent 60%),
-        radial-gradient(500px 120px at 60% 60%, rgba(24,212,159,.12), transparent 70%);
+        radial-gradient(1200px 400px at 20% -10%, var(--hero-accent-1), transparent 60%),
+        radial-gradient(800px 300px at 80% -10%, var(--hero-accent-2), transparent 60%),
+        radial-gradient(500px 120px at 60% 60%, var(--hero-accent-3), transparent 70%);
     }
     .hero-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:min(6vw,56px); align-items:center}
     @media (max-width: 900px){.hero-grid{grid-template-columns:1fr; text-align:center}}
@@ -110,21 +277,33 @@
 
     .btn{appearance:none; border:none; padding:12px 18px; font-weight:700; border-radius:12px; cursor:pointer; text-decoration:none; display:inline-flex; align-items:center; gap:10px}
     .btn.primary{background:linear-gradient(90deg, var(--brand), var(--brand-2)); color:#041221; box-shadow:0 10px 26px rgba(58,161,255,.25)}
-    .btn.ghost{background:transparent; color:var(--text); border:1px solid rgba(255,255,255,.15)}
+    html[data-theme="royal-blue"] .btn.primary{ color:#041221 }
+    html[data-theme="glossy-gold"] .btn.primary{ color:#3b2b00 }
+    .btn.ghost{background:transparent; color:var(--text); border:1px solid var(--ghost-border)}
 
     .illustration{
-      background:linear-gradient(145deg, rgba(18,32,60,.7), rgba(10,20,38,.5));
-      border:1px solid rgba(255,255,255,.08); border-radius:24px; padding:22px; box-shadow:var(--shadow);
+      background:linear-gradient(145deg, var(--panel-start), var(--panel-end));
+      border:1px solid var(--surface-border); border-radius:24px; padding:22px; box-shadow:var(--shadow);
+      transition: box-shadow .28s ease, transform .28s ease, border-color .2s ease;
     }
+    .illustration:hover{
+      transform: translateY(-4px);
+      border-color: rgba(var(--glow-rgb), .35);
+      box-shadow:
+        0 0 0 1px rgba(var(--glow-rgb), .25),
+        0 24px 60px rgba(var(--glow-rgb), .30),
+        inset 0 0 40px rgba(var(--glow-rgb), .10);
+    }
+
     .statbar{display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:16px}
-    .stat{background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.06); border-radius:14px; padding:14px; text-align:center}
-    .stat b{display:block; font-size:1.15rem}
+    .stat{background:var(--stat-bg); border:1px solid var(--stat-border); border-radius:14px; padding:14px; text-align:center}
+    .stat b{display:block; font-size:1.15rem; color:var(--text)}
     .stat span{color:var(--muted); font-size:.9rem}
 
     /* ===== SECTIONS ===== */
     section{padding:80px 0}
     .section-head{display:flex; align-items:end; justify-content:space-between; gap:1rem; margin-bottom:22px}
-    .section-head h2{margin:0; font-size:clamp(1.6rem, 1.2vw + 1.2rem, 2.1rem)}
+    .section-head h2{margin:0; font-size:clamp(1.6rem, 1.2vw + 1.2rem, 2.1rem); color:var(--text)}
     .section-head p{margin:0; color:var(--muted)}
 
     /* Services */
@@ -134,66 +313,209 @@
 
     .card{
       background:var(--card);
-      border:1px solid rgba(255,255,255,.07);
+      border:1px solid var(--surface-border);
       border-radius:18px; padding:18px;
       box-shadow:var(--shadow);
-      transition: transform .2s ease, border-color .2s ease
+      transition: transform .28s ease, border-color .2s ease, box-shadow .28s ease;
     }
-    .card:hover{transform: translateY(-4px); border-color: rgba(58,161,255,.45)}
+    .card:hover{
+      transform: translateY(-6px) scale(1.06);
+      border-color: rgba(58,161,255,.30);
+      box-shadow: 0 20px 40px rgba(0,0,0,.08);
+    }
+    html[data-theme="glossy-gold"] .card:hover{ border-color: rgba(212,175,55,.38) }
     .card .thumb{
       width:100%;
       aspect-ratio:16/9;
       display:block;
       border-radius:12px;
       object-fit:cover;
-      background:#0c1426;
-      border:1px solid rgba(255,255,255,.08);
+      background:var(--thumb-bg);
+      border:1px solid var(--surface-border);
       margin-bottom:12px;
       transition: transform .25s ease;
     }
     .card:hover .thumb{ transform: translateY(-2px); }
-    .card .icon{
-      width:50px; height:50px; border-radius:14px; display:grid; place-items:center;
-      background:rgba(58,161,255,.15); margin-bottom:14px
+    .card h3{margin:6px 0 8px; color:var(--text)}
+    .card p{color:var(--muted); margin:0; text-align:justify}
+    .card .actions{ margin-top:12px }
+
+    /* CTA icon buttons — unified color.
+       NOTE: We allow brand-colored logos by skipping the color-forcing on .icon-btn.brand */
+    .cta-row{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
+    .icon-btn{
+      width:42px; height:42px; border-radius:12px;
+      display:inline-grid; place-items:center;
+      border:1px solid var(--surface-border);
+      background:var(--card);
+      color:var(--brand);
+      box-shadow: var(--shadow);
+      transition: transform .2s ease, border-color .2s ease, background .2s ease, color .2s ease, filter .2s ease;
     }
-    .card h3{margin:6px 0 8px}
-    .card p{color:var(--muted); margin:0}
+    .icon-btn:hover{ transform: translateY(-2px); border-color: var(--brand); color: var(--brand); }
+    html[data-theme="glossy-gold"] .icon-btn:hover{ border-color:#b48b00; color:#b48b00; }
+    .icon-btn svg{ width:20px; height:20px; }
+    .icon-btn img{ width:20px; height:20px; display:block; }
+    /* Force same color for non-brand (line) icons only */
+    .card .cta-row .icon-btn:not(.brand) svg *{ stroke: currentColor !important; fill: currentColor !important; }
 
     /* About */
     .about{display:grid; grid-template-columns:1.1fr .9fr; gap:26px; align-items:center}
     @media (max-width: 900px){.about{grid-template-columns:1fr; text-align:center}}
-    .about .panel{background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:20px; padding:22px; box-shadow:var(--shadow)}
+    .about .panel{background:var(--card); border:1px solid var(--surface-border); border-radius:20px; padding:22px; box-shadow:var(--shadow)}
+    .about .panel p{ text-align: justify; }
 
-    /* Contact */
+    /* Leadership (MD & Founder) */
+    .leaders-grid{
+      margin-top:26px;
+      display:grid; grid-template-columns:1fr 1fr; gap:22px;
+    }
+    @media (max-width: 900px){ .leaders-grid{ grid-template-columns:1fr } }
+    .leader-card{
+      background:var(--card); border:1px solid var(--surface-border); border-radius:20px;
+      padding:18px; box-shadow:var(--shadow);
+      transition: transform .28s ease, border-color .2s ease, box-shadow .28s ease;
+      text-align:center;
+    }
+    .leader-card:hover{
+      transform: translateY(-6px) scale(1.03);
+      border-color: rgba(var(--glow-rgb), .35);
+      box-shadow: 0 20px 50px rgba(var(--glow-rgb), .18);
+    }
+    .leader-photo{
+      border-radius:16px; overflow:hidden;
+      background:linear-gradient(135deg, var(--thumb-bg), rgba(var(--glow-rgb), .10));
+      border:1px solid var(--surface-border);
+      aspect-ratio: 4/5; margin-bottom:12px;
+      position:relative;
+    }
+    .leader-photo img{
+      width:100%; height:100%; object-fit:cover; display:block;
+      transition: transform .35s ease;
+    }
+    .leader-card:hover .leader-photo img{ transform: scale(1.03); }
+    img[src=""]{ display:none; }
+
+    .leader-card .name{ font-weight:700; margin:6px 0 0; color:var(--text) }
+    .leader-card .role{ margin:4px 0 8px; color:var(--muted); font-weight:600 }
+    .leader-card .bio{ margin:0; color:var(--muted); text-align: justify; }
+
+    /* OUR GOALS */
+    .goals{ padding-top:30px; }
+    .goals-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+    @media (max-width: 1100px){ .goals-grid{ grid-template-columns:repeat(2,1fr) } }
+    @media (max-width: 640px){ .goals-grid{ grid-template-columns:1fr } }
+    .goal{
+      background:var(--card); border:1px solid var(--surface-border); border-radius:18px; padding:18px;
+      box-shadow:var(--shadow); transition:transform .25s ease, border-color .2s ease, box-shadow .25s ease;
+    }
+    .goal:hover{ transform: translateY(-6px) scale(1.03); border-color: rgba(var(--glow-rgb), .35); box-shadow: 0 20px 40px rgba(0,0,0,.08); }
+    .goal .media{
+      display:flex; align-items:center; gap:12px; margin-bottom:10px;
+    }
+    .goal .goal-img{
+      width:46px; height:46px; border-radius:12px; object-fit:cover; display:block;
+      border:1px solid var(--surface-border);
+      background:var(--thumb-bg);
+    }
+    .goal .g-icon{
+      width:54px; height:54px; border-radius:14px; display:grid; place-items:center;
+      background:var(--icon-bg);
+      color:var(--brand);
+    }
+    .goal h4{ margin:6px 0 8px; color:var(--text) }
+    .goal p{ margin:0; color:var(--muted); text-align:justify }
+
+    /* Contact / Footer */
     .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px}
     @media (max-width: 900px){.contact-grid{grid-template-columns:1fr}}
     form{display:grid; gap:12px}
-    input, textarea{width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.14); background:#0c1426; color:var(--text)}
+    input, textarea{
+      width:100%; padding:12px 14px; border-radius:12px;
+      border:1px solid var(--input-border);
+      background:var(--input-bg); color:var(--text)
+    }
     textarea{min-height:120px; resize:vertical}
-    .footer{padding:32px 0; color:var(--muted); border-top:1px solid rgba(255,255,255,.08)}
+    #map{
+      width:100%;
+      height:320px;
+      border-radius:16px;
+      border:1px solid var(--surface-border);
+      box-shadow:var(--shadow);
+    }
+
+    .footer{padding:32px 0; color:var(--muted); border-top:1px solid var(--footer-border)}
     .footer a{color:var(--brand)}
+    .footer .container{ align-items:center; }
+    .socials{ display:flex; gap:10px; align-items:center; }
+    .socials a{
+      width:36px; height:36px; border-radius:10px;
+      display:grid; place-items:center;
+      background:var(--card); color:var(--text);
+      border:1px solid var(--surface-border);
+      box-shadow: var(--shadow);
+      transition: transform .2s ease, color .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .socials a:hover{ transform: translateY(-3px); color: var(--brand); border-color: currentColor; }
+    html[data-theme="glossy-gold"] .socials a:hover{ color:#b48b00; }
+
+    /* ===== THEME SWITCHER (FAB + POPOVER) ===== */
+    .theme-fab{
+      position: fixed; top:12px; right:12px; z-index: 70;
+      display:inline-grid; place-items:center;
+      width:42px; height:42px; border-radius:12px;
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid var(--surface-border);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+    }
+    .theme-fab svg{ width:22px; height:22px }
+    .theme-panel{
+      position: fixed; top:60px; right:12px; z-index: 69;
+      background: var(--card);
+      border:1px solid var(--surface-border);
+      border-radius:14px; box-shadow: var(--shadow);
+      padding:10px; display:none; gap:8px; align-items:center;
+    }
+    .theme-panel.open{ display:flex; }
+    .theme-panel .label{ font-size:.8rem; color:var(--muted); padding:0 6px 0 2px; white-space:nowrap }
+    .theme-panel button{
+      width:34px; height:34px; border-radius:10px; border:1px solid var(--surface-border);
+      cursor:pointer; display:inline-flex; align-items:center; justify-content:center; font-weight:700;
+      background:#fff; color:#0b1220;
+    }
+    .theme-panel .opt-white{ background:linear-gradient(180deg,#fff,#f3f6fb) }
+    .theme-panel .opt-blue{ background:linear-gradient(180deg,#0a1120,#0f1a33); color:#eaf2ff; border-color:rgba(255,255,255,.2) }
+    .theme-panel .opt-gold{ background:linear-gradient(180deg,#ffeaa6,#ffd865); color:#3b2b00; border-color:rgba(146,110,0,.35) }
+
+    /* SR-only */
+    .sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
   </style>
 </head>
 <body>
-  <!-- Scrolling background layer (behind all content) -->
+  <!-- Background layer -->
   <div class="bg-scroll" aria-hidden="true"></div>
 
   <!-- ===== NAVBAR ===== -->
   <header>
     <div class="container nav" id="navbar">
       <a href="#top" class="brand" aria-label="Sanskriti Road Carries logo home">
-        <img src="https://i.ibb.co/mrL0bGM3/SRC-logo.png" alt="Sanskriti Road Carries Logo">
-        <strong>Sanskriti Road Carries</strong>
+        <img src="https://i.ibb.co/TBSGVjhT/SRC-logo.png" alt="Sanskriti Road Carries Logo">
       </a>
 
       <nav class="links" id="navLinks" aria-label="Primary">
+        <a href="#top">Home</a>
         <a href="#services">Services</a>
+        <a href="#industrial-transport">Industrial-transport</a>
         <a href="#about">About Us</a>
+        <a href="#Leadership">Leadership</a>
+        <a href="#goals">Our Goals</a>
         <a href="#contact">Contact</a>
       </nav>
 
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-controls="navLinks" aria-expanded="false">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </button>
@@ -214,7 +536,7 @@
         </div>
       </div>
       <div class="illustration">
-        <img src="https://i.ibb.co/Lz1NyGgR/home-page-image1.png" alt="Modern freight truck on highway" style="width:100%; border-radius:16px; display:block; aspect-ratio: 16/10; object-fit:cover;" />
+        <img src="https://i.ibb.co/ZzpnzYpy/SRC.png" alt="Modern freight truck on highway" style="width:100%; border-radius:16px; display:block; aspect-ratio: 16/10; object-fit:cover;" />
         <div class="statbar">
           <div class="stat"><b>500+</b><span>Clients Served</span></div>
           <div class="stat"><b>200+</b><span>Daily Shipments</span></div>
@@ -231,43 +553,175 @@
         <h2>Our Services</h2>
         <p>Flexible, scalable, and built around your routes.</p>
       </div>
+
       <div class="cards">
+        <!-- Card 1 -->
         <article class="card">
           <img class="thumb" loading="lazy" alt="Air Freight" src="https://i.ibb.co/5hb3M9VD/AIR-FREIGHT.png" />
           <h3>Air Freight</h3>
           <p>Fast, reliable air cargo solutions across India and global destinations. We handle urgent, high-value shipments with secure delivery and real-time tracking. Backed by expert customs support and strong airline networks for seamless operations.</p>
+          <div class="actions cta-row">
+            <!-- WhatsApp: official logo via SVG CDN (brand colors preserved) -->
+            <a class="icon-btn brand wa wa-btn" data-service="Air Freight" href="#" target="_blank" rel="noopener" aria-label="Enquire on WhatsApp">
+              <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp logo" width="20" height="20" />
+              <span class="sr-only">WhatsApp</span>
+            </a>
+            <!-- Phone: line icon (kept unified color) -->
+            <a class="icon-btn call tel-btn" href="#" aria-label="Call now">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M22 16.92v2a2 2 0 0 1-2.18 2c-3.2-.27-6.23-1.69-8.57-4.03S6.35 9.38 6.08 6.18A2 2 0 0 1 8.06 4h2a2 2 0 0 1 2 1.72c.12.86.35 1.69.67 2.47a2 2 0 0 1-.45 2.11l-.9.9a16 16 0 0 0 6.04 6.04l.9-.9a2 2 0 0 1 2.11-.45c.78.32 1.61.55 2.47.67A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span class="sr-only">Call</span>
+            </a>
+            <!-- Gmail logo -->
+            <a class="icon-btn brand mail mail-btn" data-service="Air Freight" href="#" aria-label="Email us">
+              <img src="https://cdn.simpleicons.org/gmail/EA4335" alt="Gmail logo" width="20" height="20" />
+              <span class="sr-only">Email</span>
+            </a>
+            <!-- Google Maps logo -->
+            <a class="icon-btn brand loc loc-btn" href="#" target="_blank" rel="noopener" aria-label="Open location">
+              <img src="https://cdn.simpleicons.org/googlemaps/4285F4" alt="Google Maps logo" width="20" height="20" />
+              <span class="sr-only">Location</span>
+            </a>
+          </div>
         </article>
 
+        <!-- Card 2 -->
         <article class="card">
           <img class="thumb" loading="lazy" alt="Surface Transport Service" src="https://i.ibb.co/qF2zw0Mq/Surface-Transport-Service.png" />
           <h3>Surface Transport Service</h3>
           <p>Efficient and secure surface logistics across India for electronics, industrial goods, and essential shipping utilities. We offer full truckload and part load services with real-time tracking. Reliable delivery, expert handling, and optimized routes for cost-effective transport.</p>
+          <div class="actions cta-row">
+            <a class="icon-btn brand wa wa-btn" data-service="Surface Transport Service" href="#" target="_blank" rel="noopener" aria-label="Enquire on WhatsApp">
+              <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp logo" width="20" height="20" />
+              <span class="sr-only">WhatsApp</span>
+            </a>
+            <a class="icon-btn call tel-btn" href="#" aria-label="Call now">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M22 16.92v2a2 2 0 0 1-2.18 2c-3.2-.27-6.23-1.69-8.57-4.03S6.35 9.38 6.08 6.18A2 2 0 0 1 8.06 4h2a2 2 0 0 1 2 1.72c.12.86.35 1.69.67 2.47a2 2 0 0 1-.45 2.11l-.9.9a16 16 0 0 0 6.04 6.04l.9-.9a2 2 0 0 1 2.11-.45c.78.32 1.61.55 2.47.67A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span class="sr-only">Call</span>
+            </a>
+            <a class="icon-btn brand mail mail-btn" data-service="Surface Transport Service" href="#" aria-label="Email us">
+              <img src="https://cdn.simpleicons.org/gmail/EA4335" alt="Gmail logo" width="20" height="20" />
+              <span class="sr-only">Email</span>
+            </a>
+            <a class="icon-btn brand loc loc-btn" href="#" target="_blank" rel="noopener" aria-label="Open location">
+              <img src="https://cdn.simpleicons.org/googlemaps/4285F4" alt="Google Maps logo" width="20" height="20" />
+              <span class="sr-only">Location</span>
+            </a>
+          </div>
         </article>
 
+        <!-- Card 3 -->
         <article class="card">
           <img class="thumb" loading="lazy" alt="Rail Cargo Services" src="https://i.ibb.co/gMhj0MT8/Rail-Cargo-Services.png" />
           <h3>Rail Cargo Services</h3>
           <p>Cost-effective and reliable rail transport for electronics, industrial goods, and bulk shipping utilities across India. We ensure safe handling, timely deliveries, and seamless connectivity through major rail routes. Ideal for long-distance, high-volume shipments with real-time tracking.</p>
+          <div class="actions cta-row">
+            <a class="icon-btn brand wa wa-btn" data-service="Rail Cargo Services" href="#" target="_blank" rel="noopener" aria-label="Enquire on WhatsApp">
+              <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp logo" width="20" height="20" />
+              <span class="sr-only">WhatsApp</span>
+            </a>
+            <a class="icon-btn call tel-btn" href="#" aria-label="Call now">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M22 16.92v2a2 2 0 0 1-2.18 2c-3.2-.27-6.23-1.69-8.57-4.03S6.35 9.38 6.08 6.18A2 2 0 0 1 8.06 4h2a2 2 0 0 1 2 1.72c.12.86.35 1.69.67 2.47a2 2 0 0 1-.45 2.11l-.9.9a16 16 0 0 0 6.04 6.04l.9-.9a2 2 0 0 1 2.11-.45c.78.32 1.61.55 2.47.67A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span class="sr-only">Call</span>
+            </a>
+            <a class="icon-btn brand mail mail-btn" data-service="Rail Cargo Services" href="#" aria-label="Email us">
+              <img src="https://cdn.simpleicons.org/gmail/EA4335" alt="Gmail logo" width="20" height="20" />
+              <span class="sr-only">Email</span>
+            </a>
+            <a class="icon-btn brand loc loc-btn" href="#" target="_blank" rel="noopener" aria-label="Open location">
+              <img src="https://cdn.simpleicons.org/googlemaps/4285F4" alt="Google Maps logo" width="20" height="20" />
+              <span class="sr-only">Location</span>
+            </a>
+          </div>
         </article>
 
+        <!-- Card 6 -->
+        <article class="card">
+          <img class="thumb" loading="lazy" alt="E-Commerce Logistics Solutions" src="https://i.ibb.co/MDx3sqNJ/Ship-Cargo.png" />
+          <h3>Sea Freight</h3>
+          <p>Cost-effective ocean shipping for FCL and LCL cargo across major global ports. We manage booking, customs, and delivery with reliable schedules, secure handling, and real-time tracking for smooth international logistics.</p>
+          <div class="actions cta-row">
+            <a class="icon-btn brand wa wa-btn" data-service="E-Commerce Logistics Solutions" href="#" target="_blank" rel="noopener" aria-label="Enquire on WhatsApp">
+              <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp logo" width="20" height="20" />
+              <span class="sr-only">WhatsApp</span>
+            </a>
+            <a class="icon-btn call tel-btn" href="#" aria-label="Call now">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M22 16.92v2a2 2 0 0 1-2.18 2c-3.2-.27-6.23-1.69-8.57-4.03S6.35 9.38 6.08 6.18A2 2 0 0 1 8.06 4h2a2 2 0 0 1 2 1.72c.12.86.35 1.69.67 2.47a2 2 0 0 1-.45 2.11l-.9.9a16 16 0 0 0 6.04 6.04l.9-.9a2 2 0 0 1 2.11-.45c.78.32 1.61.55 2.47.67A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span class="sr-only">Call</span>
+            </a>
+            <a class="icon-btn brand mail mail-btn" data-service="E-Commerce Logistics Solutions" href="#" aria-label="Email us">
+              <img src="https://cdn.simpleicons.org/gmail/EA4335" alt="Gmail logo" width="20" height="20" />
+              <span class="sr-only">Email</span>
+            </a>
+            <a class="icon-btn brand loc loc-btn" href="#" target="_blank" rel="noopener" aria-label="Open location">
+              <img src="https://cdn.simpleicons.org/googlemaps/4285F4" alt="Google Maps logo" width="20" height="20" />
+              <span class="sr-only">Location</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Card 4 -->
         <article class="card">
           <img class="thumb" loading="lazy" alt="Express Cargo Delivery" src="https://i.ibb.co/gLhZCjgf/Express-Cargo-Delivery.png" />
           <h3>Express Cargo Delivery</h3>
           <p>Experience lightning-fast cargo delivery across India with our Express Cargo Service — designed for speed, reliability, and precision. From urgent documents to time-sensitive parcels, we ensure door-to-door nationwide delivery with real-time tracking and guaranteed timelines.</p>
+          <div class="actions cta-row">
+            <a class="icon-btn brand wa wa-btn" data-service="Express Cargo Delivery" href="#" target="_blank" rel="noopener" aria-label="Enquire on WhatsApp">
+              <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp logo" width="20" height="20" />
+              <span class="sr-only">WhatsApp</span>
+            </a>
+            <a class="icon-btn call tel-btn" href="#" aria-label="Call now">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M22 16.92v2a2 2 0 0 1-2.18 2c-3.2-.27-6.23-1.69-8.57-4.03S6.35 9.38 6.08 6.18A2 2 0 0 1 8.06 4h2a2 2 0 0 1 2 1.72c.12.86.35 1.69.67 2.47a2 2 0 0 1-.45 2.11l-.9.9a16 16 0 0 0 6.04 6.04l.9-.9a2 2 0 0 1 2.11-.45c.78.32 1.61.55 2.47.67A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span class="sr-only">Call</span>
+            </a>
+            <a class="icon-btn brand mail mail-btn" data-service="Express Cargo Delivery" href="#" aria-label="Email us">
+              <img src="https://cdn.simpleicons.org/gmail/EA4335" alt="Gmail logo" width="20" height="20" />
+              <span class="sr-only">Email</span>
+            </a>
+            <a class="icon-btn brand loc loc-btn" href="#" target="_blank" rel="noopener" aria-label="Open location">
+              <img src="https://cdn.simpleicons.org/googlemaps/4285F4" alt="Google Maps logo" width="20" height="20" />
+              <span class="sr-only">Location</span>
+            </a>
+          </div>
         </article>
 
+        <!-- Card 5 -->
         <article class="card">
           <img class="thumb" loading="lazy" alt="Retail & FMCG Distribution" src="https://i.ibb.co/CKn90zqz/Retail-FMCG-Distribution.png" />
           <h3>Retail & FMCG Distribution</h3>
           <p>End-to-end distribution solutions for Retail and FMCG products across India. We ensure fast, accurate deliveries with optimized routing, inventory control, and real-time tracking. Scalable support for high-volume, time-sensitive supply chains.</p>
+          <div class="actions cta-row">
+            <a class="icon-btn brand wa wa-btn" data-service="Retail & FMCG Distribution" href="#" target="_blank" rel="noopener" aria-label="Enquire on WhatsApp">
+              <img src="https://cdn.simpleicons.org/whatsapp/25D366" alt="WhatsApp logo" width="20" height="20" />
+              <span class="sr-only">WhatsApp</span>
+            </a>
+            <a class="icon-btn call tel-btn" href="#" aria-label="Call now">
+              <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M22 16.92v2a2 2 0 0 1-2.18 2c-3.2-.27-6.23-1.69-8.57-4.03S6.35 9.38 6.08 6.18A2 2 0 0 1 8.06 4h2a2 2 0 0 1 2 1.72c.12.86.35 1.69.67 2.47a2 2 0 0 1-.45 2.11l-.9.9a16 16 0 0 0 6.04 6.04l.9-.9a2 2 0 0 1 2.11-.45c.78.32 1.61.55 2.47.67A2 2 0 0 1 22 16.92z"/>
+              </svg>
+              <span class="sr-only">Call</span>
+            </a>
+            <a class="icon-btn brand mail mail-btn" data-service="Retail & FMCG Distribution" href="#" aria-label="Email us">
+              <img src="https://cdn.simpleicons.org/gmail/EA4335" alt="Gmail logo" width="20" height="20" />
+              <span class="sr-only">Email</span>
+            </a>
+            <a class="icon-btn brand loc loc-btn" href="#" target="_blank" rel="noopener" aria-label="Open location">
+              <img src="https://cdn.simpleicons.org/googlemaps/4285F4" alt="Google Maps logo" width="20" height="20" />
+              <span class="sr-only">Location</span>
+            </a>
+          </div>
         </article>
 
-        <article class="card">
-          <img class="thumb" loading="lazy" alt="E-Commerce Logistics Solutions" src="https://i.ibb.co/QvMV4QKb/E-Commerce-Logistics-Solutions.png" />
-          <h3>E-Commerce Logistics Solutions
-</h3>
-          <p>Seamless logistics support for e-commerce businesses across India, from first mile to last mile. We offer fast order fulfillment, real-time tracking, COD services, and reverse logistics. Scalable, tech-enabled solutions to keep your online business moving.</p>
-        </article>
+        
       </div>
     </div>
   </section>
@@ -280,13 +734,11 @@
         <p class="muted">Sanskriti Road Carries is a professional road transport company focused on dependable operations and client-first service.</p>
         <div class="panel">
           <p>
-            With seasoned coordinators and vetted fleet partners across major corridors, we provide consistent SLAs, transparent pricing, and responsive communication. Our mission is to simplify surface logistics for SMEs and enterprises alike.
+            Sanskriti Road Carriers is a leading national logistics and transportation company, committed to delivering safe, reliable, and cost-effective road carrier services across India. With a strong presence spanning cities, towns, and remote locations, we provide tailored logistics solutions to meet the dynamic needs of industries ranging from manufacturing and retail to infrastructure and agriculture.
           </p>
-          <ul>
-            <li>Pan-India network with strategic hubs</li>
-            <li>D2D pickup & last-mile coverage</li>
-            <li>Dedicated key-account managers</li>
-          </ul>
+          <p>
+            Our services include full truckload (FTL), part truckload (PTL), dedicated fleet operations, and time-bound deliveries—all backed by a modern fleet, skilled personnel, and technology-driven operations that ensure real-time tracking, route optimization, and complete shipment visibility.
+          </p>
         </div>
       </div>
       <div class="panel">
@@ -312,44 +764,217 @@
         </div>
       </div>
     </div>
-  </section>
-
-  <!-- ===== CONTACT ===== -->
-  <section id="contact">
+      <!-- ===== INDUSTRIAL TRANSPORT SECTION ===== -->
+  <section id="industrial-transport">
     <div class="container">
       <div class="section-head">
-        <h2>Contact</h2>
-        <p>Tell us your route and cargo details—get a fast quote.</p>
+        <h2>Industrial Transport</h2>
+        <p>Comprehensive heavy and specialized logistics for industrial sectors across India.</p>
       </div>
-      <div class="contact-grid">
-        <form onsubmit="event.preventDefault(); alert('Thanks! We\'ll get back to you shortly.');">
-          <input type="text" name="name" placeholder="Your Name" required>
-          <input type="email" name="email" placeholder="Email" required>
-          <input type="tel" name="phone" placeholder="Phone" required>
-          <textarea name="message" placeholder="Describe your shipment (route, weight/volume, timeline)" required></textarea>
-          <button class="btn primary" type="submit">Request Quote</button>
-        </form>
-        <div class="panel" style="background:var(--card); border:1px solid rgba(255,255,255,.08); border-radius:20px; padding:22px; box-shadow:var(--shadow)">
-          <h3 style="margin-top:0">Reach Us</h3>
-          <p>
-            <b>Email:</b> info@sanskritiroadcarries.com<br>
-            <b>Phone:</b> +91-00000-00000<br>
-            <b>Hours:</b> Mon–Sat, 9:00–19:00
-          </p>
-          <p style="color:var(--muted)">Replace the contact details above with your real information.</p>
+
+      <div class="cards">
+        <!-- Card 1 -->
+        <article class="card">
+          <img class="thumb" loading="lazy" alt="Heavy Machinery Transport" src="https://i.ibb.co/HTP9qc5b/img3.png" />
+          <p>Reliable logistics for transporting large industrial machinery, construction equipment, and manufacturing units with specialized trailers and cranes for safe, secure handling.</p>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card">
+          <img class="thumb" loading="lazy" alt="ODC Cargo Transport" src="https://i.ibb.co/B29n2DKh/img2.png" />
+          <p>Specialized over-dimensional cargo handling with precise route planning, escort services, and technical surveys ensuring safe delivery of oversized industrial goods nationwide.</p>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card">
+          <img class="thumb" loading="lazy" alt="Construction Equipment Logistics" src="https://i.ibb.co/sdXYj1DQ/Img1.png" />
+          <p>Safe transport of cranes, loaders, pavers, and other heavy construction machinery using hydraulic low-bed and high-bed trailers with expert supervision.</p>
+        </article>
+        </div>
+  </section>
+    <section id="Leadership">
+    <!-- Leadership -->
+    <div class="container">
+      <div class="section-head" style="margin-top:10px;">
+        <h2>Leadership</h2>
+        <p>Experienced leadership with a premium, customer-first mindset.</p>
+      </div>
+      <div class="leaders-grid">
+        <article class="leader-card">
+          <div class="leader-photo">
+            <img src="https://i.ibb.co/fdLzGx15/founder.jpg" alt="Founder">
+          </div>
+          <p class="name">M. K. Mishra</p>
+          <p class="role">Founder</p>
+          <p class="bio">As the Founder of Sanskriti Road Carriers, M.K. Mishra has led the company’s transformation into one of India’s most respected names in logistics. His vision, dedication, and hands-on leadership have been key in building a business grounded in customer satisfaction, operational excellence, and continuous innovation.</p>
+          <p class="bio">Under his guidance, the company has embraced cutting-edge technology, streamlined operations, and invested in top talent to deliver reliable, efficient, and scalable logistics solutions nationwide. Mr. Mishra’s forward-thinking approach has empowered clients to navigate complex supply chain challenges with confidence and ease.</p>
+          <p class="bio">With a strong focus on sustainable growth and service quality, he continues to drive Sanskriti Road Carriers toward new milestones—expanding capabilities, entering new markets, and setting higher standards for the logistics industry.</p>
+        </article>
+
+        <article class="leader-card">
+          <div class="leader-photo">
+            <img src="https://i.ibb.co/qL4S5bRb/MD.jpg" alt="Managing Director">
+          </div>
+          <p class="name">V. K. Mishra</p>
+          <p class="role">Managing Director</p>
+          <p class="bio">As Managing Director of Sanskriti Road Carriers, Mr. M.K. Mishra brings visionary leadership, strategic insight, and deep industry experience to the forefront of the company’s operations. Under his guidance, the organization has grown into a nationally recognized logistics provider known for its reliability, innovation, and customer-first approach.</p>
+          <p class="bio">Mr. Mishra has been instrumental in shaping the company’s core values—placing strong emphasis on operational excellence, continuous improvement, and long-term client partnerships. His commitment to adopting modern technology and building a skilled workforce has positioned Sanskriti Road Carriers as a forward-thinking, future-ready logistics brand.</p>
+          <p class="bio">With a clear focus on growth and innovation, Mr. Mishra continues to lead the company toward new opportunities—expanding services, strengthening infrastructure, and setting higher benchmarks in the Indian logistics sector.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== OUR GOALS ===== -->
+  <section id="goals" class="goals">
+    <div class="container">
+      <div class="section-head">
+        <h2>Our Goals</h2>
+        <p>What guides our work—shaped by integrity, teamwork, innovation, and punctuality.</p>
+      </div>
+
+      <div class="goals-grid">
+        <article class="goal">
+          <div class="media">
+            <div class="g-icon" aria-hidden="true">
+              <!-- Shield + check -->
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2l7 4v6c0 5-3.5 9-7 10-3.5-1-7-5-7-10V6l7-4z"/>
+                <path d="M9 12l2 2 4-4"/>
+              </svg>
+            </div>
+          </div>
+          <h4>Integrity</h4>
+          <p>We uphold the highest standards of honesty and transparency in all our interactions, fostering trust and long-lasting relationships with clients and partners.</p>
+        </article>
+
+        <article class="goal">
+          <div class="media">
+            <div class="g-icon" aria-hidden="true">
+              <!-- Users -->
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                <circle cx="9" cy="7" r="4"/>
+                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+              </svg>
+            </div>
+          </div>
+          <h4>Teamwork</h4>
+          <p>Our success is driven by collaboration and mutual support, with every team member contributing to exceptional service and collective goals.</p>
+        </article>
+
+        <article class="goal">
+          <div class="media">
+            <div class="g-icon" aria-hidden="true">
+              <!-- Bulb -->
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18h6"/>
+                <path d="M10 22h4"/>
+                <path d="M2 12a10 10 0 1 1 20 0"/>
+                <path d="M12 6v6"/>
+              </svg>
+            </div>
+          </div>
+          <h4>Innovation</h4>
+          <p>We embrace creativity and cutting-edge technology to continuously enhance processes so clients stay ahead of industry advancements.</p>
+        </article>
+
+        <article class="goal">
+          <div class="media">
+            <div class="g-icon" aria-hidden="true">
+              <!-- Clock / check -->
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M12 7v5l3 2"/>
+              </svg>
+            </div>
+          </div>
+          <h4>On Time</h4>
+          <p>We plan proactively and track continuously so your shipments consistently reach their destination within the committed timeline.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+<!-- ===== CONTACT ===== -->
+<section id="contact">
+  <div class="container">
+    <div class="section-head">
+      <h2>Contact</h2>
+      <p>Tell us your route and cargo details—get a fast quote.</p>
+    </div>
+    <div class="contact-grid">
+      <form id="contactForm">
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <input type="email" id="email" name="email" placeholder="Email" required>
+        <input type="tel" id="phone" name="phone" placeholder="Phone" required>
+        <textarea id="message" name="message" placeholder="Describe your shipment (route, weight/volume, timeline)" required></textarea>
+        <button class="btn primary" type="submit">Request Quote</button>
+      </form>
+      <div class="panel" style="background:var(--card); border:1px solid var(--surface-border); border-radius:20px; padding:22px; box-shadow:var(--shadow)">
+        <h3 style="margin-top:0">Reach Us</h3>
+        <p>
+          <b>Email:</b> info@srcgrup.co<br>
+          <b>Phone:</b> +91 7096867616<br>
+          <b>Address:</b> Shop No. C-14, Swaminarayan Business Park, Opp. Gokulesh Petrol Pump Narol-Aslali Highway, Narol, Ahmedabad-382405
+        </p>
+        <div class="map-embed">
+          <iframe
+            id="map-iframe"
+            src="https://www.google.com/maps?q=Shop%20No.%20C-14,%20Swaminarayan%20Business%20Park,%20Opp.%20Gokulesh%20Petrol%20Pump,%20Narol-Aslali%20Highway,%20Narol,%20Ahmedabad-382405&output=embed"
+            loading="lazy" allowfullscreen
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
+  <!-- ===== FOOTER ===== -->
   <footer class="footer">
     <div class="container" style="display:flex; align-items:center; justify-content:space-between; gap:1rem; flex-wrap:wrap">
-      <span>© <span id="year"></span> Sanskriti Road Carries. All rights reserved.</span>
-      <span>
-        <a href="#services">Services</a> · <a href="#about">About</a> · <a href="#contact">Contact</a>
-      </span>
+      <span>© <span id="year"></span> Sanskriti Road Carries & Transport & praudyogik.tech All rights reserved.</span>
+      <div class="socials" aria-label="Social media">
+        <a href="https://www.linkedin.com/company/your-company" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7.5 0H12v2.2h.06c.62-1.17 2.14-2.4 4.4-2.4 4.7 0 5.54 3.1 5.54 7.1V24h-5v-7.7c0-1.84-.03-4.2-2.56-4.2-2.56 0-2.95 2-2.95 4.06V24h-5V8z"/></svg>
+        </a>
+        <a href="https://instagram.com/your-handle" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm0 2h10c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3zm11 1a1 1 0 100 2 1 1 0 000-2zM12 7a5 5 0 100 10 5 5 0 000-10z"/></svg>
+        </a>
+        <a href="https://x.com/your-handle" target="_blank" rel="noopener" aria-label="X (Twitter)" title="X (Twitter)">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M18.244 2H21l-6.63 7.58L22 22h-5.656l-4.417-5.36L6.9 22H4.143l7.07-8.08L2 2h5.77l4.034 5.06L18.244 2zm-2.05 18h1.644L7.88 4h-1.7l9.994 16z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@yourchannel" target="_blank" rel="noopener" aria-label="YouTube" title="YouTube">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 00.5 6.2C0 8.1 0 12 0 12s0 3.9.5 5.8a3 3 0 002.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 002.1-2.1c.5-1.9.5-5.8.5-5.8s0-3.9-.5-5.8zM9.6 15.5V8.5L15.8 12l-6.2 3.5z"/></svg>
+        </a>
+        <a href="https://facebook.com/your-page" target="_blank" rel="noopener" aria-label="Facebook" title="Facebook">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M22 12.06C22 6.48 17.52 2 11.94 2S2 6.48 2 12.06c0 5.02 3.66 9.18 8.44 9.94v-7.03H7.9v-2.91h2.54V9.41c0-2.5 1.49-3.88 3.77-3.88 1.09 0 2.23.19 2.23.19v2.45h-1.26c-1.24 0-1.63.77-1.63 1.56v1.86h2.78l-.44 2.91h-2.34V22c4.78-.76 8.44-4.92 8.44-9.94Z"/></svg>
+        </a>
+      </div>
     </div>
   </footer>
+
+  <!-- Theme Toggle (top-right) -->
+  <button class="theme-fab" id="themeFab" aria-label="Open theme switcher" aria-expanded="false" aria-controls="themePanel" title="Themes">
+    <!-- Professional sliders/palette icon -->
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <line x1="4" y1="6" x2="20" y2="6"/>
+      <line x1="4" y1="12" x2="20" y2="12"/>
+      <line x1="4" y1="18" x2="20" y2="18"/>
+      <circle cx="8" cy="6" r="2"/>
+      <circle cx="16" cy="12" r="2"/>
+      <circle cx="12" cy="18" r="2"/>
+    </svg>
+  </button>
+  <div class="theme-panel" id="themePanel" role="menu" aria-label="Theme switcher">
+    <span class="label">Theme</span>
+    <button class="opt-white" title="Premium White" data-theme="premium-white" role="menuitem">W</button>
+    <button class="opt-blue" title="Royal Blue" data-theme="royal-blue" role="menuitem">B</button>
+    <button class="opt-gold" title="Glossy Gold" data-theme="glossy-gold" role="menuitem">G</button>
+  </div>
 
   <script>
     // Mobile menu toggle
@@ -359,8 +984,6 @@
       const isOpen = links.classList.toggle('open');
       hamburger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
     });
-
-    // Close menu on link click (mobile)
     links?.querySelectorAll('a').forEach(a => a.addEventListener('click', ()=>{
       links.classList.remove('open');
       hamburger.setAttribute('aria-expanded','false');
@@ -368,18 +991,15 @@
 
     // Navbar style on scroll
     const navbar = document.getElementById('navbar');
-    const toggleNav = () => {
-      if(window.scrollY > 12){ navbar.classList.add('is-scrolled'); }
-      else { navbar.classList.remove('is-scrolled'); }
-    };
+    const toggleNav = () => { if(window.scrollY > 12){ navbar.classList.add('is-scrolled'); } else { navbar.classList.remove('is-scrolled'); } };
     document.addEventListener('scroll', toggleNav, { passive:true });
     toggleNav();
 
     // Background zoom effect
     const setBgScale = () => {
-      const max = 1000; // px of scroll after which zoom caps
+      const max = 1000;
       const progress = Math.min(window.scrollY / max, 3);
-      const scale = 1 + progress * 0.92; // up to ~22% zoom
+      const scale = 1 + progress * 0.92;
       document.documentElement.style.setProperty('--bg-scale', scale.toFixed(3));
     };
     document.addEventListener('scroll', setBgScale, { passive:true });
@@ -387,6 +1007,108 @@
 
     // Year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Theme switching + persistence
+    const applyTheme = (t) => {
+      document.documentElement.setAttribute('data-theme', t);
+      localStorage.setItem('src-theme', t);
+    };
+    const saved = localStorage.getItem('src-theme');
+    if(saved){ applyTheme(saved); } else { applyTheme('glossy-gold'); }
+
+    // Theme panel toggle
+    const fab = document.getElementById('themeFab');
+    const panel = document.getElementById('themePanel');
+    const togglePanel = (open) => {
+      const willOpen = typeof open === 'boolean' ? open : !panel.classList.contains('open');
+      panel.classList.toggle('open', willOpen);
+      fab.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    };
+    fab.addEventListener('click', (e)=>{ e.stopPropagation(); togglePanel(); });
+    panel.addEventListener('click', (e)=>{
+      const btn = e.target.closest('button[data-theme]');
+      if(!btn) return;
+      applyTheme(btn.dataset.theme);
+      togglePanel(false);
+    });
+    document.addEventListener('click', (e)=>{ if(panel.classList.contains('open') && !panel.contains(e.target) && e.target !== fab){ togglePanel(false); }});
+    document.addEventListener('keydown', (e)=>{ if(e.key === 'Escape'){ togglePanel(false); } });
+
+    // Contact CTAs wiring
+    const WA_PHONE = '7096867616'; // change to your WhatsApp number (country code, no +)
+    const CALL_PHONE = '7096867616'; // change to your phone number
+    const MAIL_TO = 'info@srcgrup.co'; // change to your email
+    const MAPS_Q = encodeURIComponent('Shop No. C-14, Swaminarayan Bussines Park, Opp. Gokulesh Petrol Pump Narol-Aslali Highway, Narol, Ahmedabad-382405'); // change to your address
+
+    document.querySelectorAll('.wa-btn').forEach(btn => {
+      const svc = btn.dataset.service || 'Logistics Enquiry';
+      const msg = encodeURIComponent(`Hello, I’d like to enquire about ${svc}. Found you via the website.`);
+      btn.href = `https://wa.me/${WA_PHONE}?text=${msg}`;
+      btn.target = '_blank';
+      btn.rel = 'noopener';
+    });
+    document.querySelectorAll('.tel-btn').forEach(btn => { btn.href = `tel:${CALL_PHONE}`; });
+    document.querySelectorAll('.mail-btn').forEach(btn => {
+      const svc = btn.dataset.service || 'Logistics Enquiry';
+      const subject = encodeURIComponent(`Enquiry: ${svc}`);
+      const body = encodeURIComponent(`Hello,\n\nI would like to know more about ${svc}.`);
+      btn.href = `mailto:${MAIL_TO}?subject=${subject}&body=${body}`;
+    });
+    document.querySelectorAll('.loc-btn').forEach(btn => { btn.href = `https://www.google.com/maps/search/?api=1&query=${MAPS_Q}`; });
+
+    /* ===== GOOGLE MAPS (Reach Us) =====
+       Replace MAP_CENTER with your real office coordinates and add your API key below */
+const MAP_CENTER = { lat: 22.94179361, lng: 72.62334006 };
+    const MAP_TITLE = 'Sanskriti Road Carries (Office)';
+
+    window.initMap = function(){
+      const map = new google.maps.Map(document.getElementById('map'), {
+        center: MAP_CENTER,
+        zoom: 12,
+        mapTypeControl: false,
+        streetViewControl: false,
+        fullscreenControl: true,
+      });
+      const marker = new google.maps.Marker({
+        position: MAP_CENTER,
+        map,
+        title: MAP_TITLE,
+        animation: google.maps.Animation.DROP
+      });
+      const info = new google.maps.InfoWindow({
+        content: `<strong>${MAP_TITLE}</strong><br/>${decodeURIComponent(MAPS_Q)}`
+      });
+      marker.addListener('click', ()=>info.open({anchor:marker, map}));
+      info.open({anchor:marker, map});
+    };
+
+      // JavaScript for WhatsApp message on form submission
+  document.getElementById("contactForm").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    // Get form data
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone").value;
+    var message = document.getElementById("message").value;
+
+    // Prepare the WhatsApp message
+    var waMessage = encodeURIComponent(`
+      Name: ${name}
+      Email: ${email}
+      Phone: ${phone}
+      Message: ${message}
+    `);
+
+    // WhatsApp link with pre-filled message
+    var waLink = `https://wa.me/7096867616?text=${waMessage}`;
+
+    // Redirect to WhatsApp
+    window.open(waLink, "_blank");
+  });
   </script>
+
+  <!-- Google Maps JS API (put your real API key) -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
 </body>
 </html>
